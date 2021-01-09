@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-Property of Francis Paesano\n
+Property of Francis Paesano
 Wilmington, DE
 <head>
 
