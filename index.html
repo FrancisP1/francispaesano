@@ -12,7 +12,7 @@ Wilmington, DE
 
 
 .figure {
-	width: 140px;
+	width: 135px;
 	height: 150px;
 	position: absolute;
 }
