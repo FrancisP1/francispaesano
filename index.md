@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html>
-Property of Francis
-Wilmington, DE
+Property of Francis, Wilmington, DE
 <head>
+<script>
 
-
-</head>
-
+</script>
 <style>
-
-
 
 .figure {
 	width: 135px;
@@ -17,9 +13,13 @@ Wilmington, DE
 	position: absolute;
 }
 
-
 </style>
 
 <img src = "LinkedIn.png" id = "figure1" class = "figure"></img>
 
+</head>
 </html>
+
+
+
+
