@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
-Property of Francis, Wilmington, DE
+
 <head>
-<script>
-
-</script>
-<style>
-
-.figure {
-	width: 135px;
-	height: 150px;
-	position: absolute;
-}
-
-</style>
-
-<img src = "LinkedIn.png" id = "figure1" class = "figure"></img>
-
 </head>
+
+<body>
+
+<nav>
+<ul>
+<li>
+<a href="professional.html">Professional</a>
+</li>
+</ul>
+</nav>
+
+</body>
+
 </html>
 
 
