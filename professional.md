@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
-Everything works
+
 <head>
 </head>
 
 <body>
+
+<nav>
+<ul>
+<li>
+<a href="/next">Next</a>
+</li>
+</ul>
+</nav>
 
 </body>
 
