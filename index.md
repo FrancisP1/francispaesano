@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-New
+
 <head>
 </head>
 
@@ -8,7 +8,9 @@ New
 
 <nav>
 <ul>
-
+<li>
+<a href="professional.html">Professional</a>
+</li>
 </ul>
 </nav>
 
