@@ -9,7 +9,7 @@
 <nav>
 <ul>
 <li>
-<a href="professional.html">Professional</a>
+<a href="/professional">Professional</a>
 </li>
 </ul>
 </nav>
