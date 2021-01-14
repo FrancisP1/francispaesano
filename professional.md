@@ -9,7 +9,7 @@
 <nav>
 <ul>
 <li>
-<a href="/next">Next</a>
+<a href="/professional/next">Next</a>
 </li>
 </ul>
 </nav>
