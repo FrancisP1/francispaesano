@@ -14,7 +14,7 @@
 </ul>
 </nav>
 
-<img src = "\Screenshot(218)" id = "Resume" class = "Resume"></img>
+<img src = "https://github.com/FrancisP1/francispaesano/blob/master/Screenshot%20(218).png?raw=true"></img>
 
 </body>
 
