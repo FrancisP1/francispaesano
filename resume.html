@@ -14,6 +14,8 @@
 </ul>
 </nav>
 
+<img src = "\Screenshot(218)" id = "Resume" class = "Resume"></img>
+
 </body>
 
 </html>
