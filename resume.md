@@ -14,7 +14,7 @@
 </ul>
 </nav>
 
-<img src = "https://github.com/FrancisP1/francispaesano/blob/master/Screenshot%20(353).png?raw=true"></img>
+<img src = "https://github.com/FrancisP1/francispaesano/blob/master/Screenshot%20(353).png"></img>
 
 </body>
 
