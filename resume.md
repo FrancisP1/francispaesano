@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script>
+	document.title = "Ugh, So Much Experience"
+</script>
+
 </head>
 
 <body>
