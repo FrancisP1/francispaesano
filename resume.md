@@ -3,7 +3,7 @@
 <head>
 
 <script>
-	document.title = "Ugh, So Much Experience"
+	document.title = "OMG, So Much Experience"
 </script>
 
 </head>
