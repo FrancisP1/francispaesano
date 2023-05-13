@@ -5,64 +5,214 @@
 
 	<script>
 
-		document.title = "Francis Maria Paesano"
+		function main() {
+
+			document.title = "Francis Maria Paesano"
+
+			const element = document.getElementById("hoverButton");
+			const element2 = document.getElementById("hoverButton2");
+			const element3 = document.getElementById("hoverButton3");
+			const element4 = document.getElementById("hoverButton4");
+
+			addEvent(element);
+			addEvent(element2);
+			addEvent(element3);
+			addEvent(element4);
+
+			const infoButton = document.getElementById("infoButton");
+			
+			infoButton.addEventListener("click", event => {
+  				var visibility = document.getElementById("infoPopUpDiv").style.visibility;
+  				var popUp = document.getElementById("infoPopUpDiv");
+  				if(visibility == "visible")
+  					popUp.style.visibility = "hidden";
+  				else
+  					popUp.style.visibility = "visible";
+  			});
+			const date = new Date();
+			var currMonths = (date.getFullYear() * 12) + (date.getMonth() + 1);
+			var birthMonths = (2000 * 12) + 6;
+			var ageMonths = currMonths - birthMonths;
+			var age = ageMonths / 12;
+			var age = Math.trunc(age);
+  			document.getElementById("age").innerHTML = age + " years old";
+		}
+
+		function addEvent(element) {
+			element.addEventListener("mouseover", event => {
+  				element.style.backgroundColor = "#CCCCCC";
+  			});
+  			element.addEventListener("mouseout", event => {
+  				element.style.backgroundColor = "#888888";
+			});
+		}
 
 	</script>
 
 	<style>
 
-		.picture {
-			width: 230;
-			height: 200px;
-			position: absolute;
-			top: 10px;
+		.body {
+			margin: 0;
+		}
 
+		.headerDiv {
+			background-color: #2255DD;
+			width: 100%;
+			display: flex;
+			border: 2px solid black;
+			border-bottom-style: none;
+			border-left-style: none;
+			border-right-style: none;
+		}
+
+		.headerTitleDiv {
+			background-color: transparent;
+			font: 24pt "impact";
+			padding-left: 15px;
+			padding-right: 15px;
+			border-left: 2px solid black;
+		}
+
+		.infoButtonDiv {
+			display: flex;
+		}
+
+		.infoButton {
+			background-color: transparent;
+			border: 2px solid black;
+			border-bottom-style: none;
+			border-top-style: none;
+		}
+
+		.headerButtonsDiv {
+			background-color: transparent;
+			width: 100%;
+			margin-top: 10px;
+			border-right: 2px solid black;
+		}
+
+		.headerButtonDiv {
+			background-color: transparent;
+			width: 50%;
+			display: inline;
+			padding-left: 25px;
 		}
 
 		.button {
-			position: absolute;
-			top: 220px;
+			background-color: white;
+			color: black;
+			border: 2px solid black;
+			text-decoration: none;
 		}
 
-		.button2 {
-			position: absolute;
-			top: 240px;
-		}
-		
-		.button3 {
-			position: absolute;
-			top: 260px;
+		.buttonLabel {
+			margin-left: 10px;
+			margin-right: 10px;
 		}
 
-		.name {
-			position: absolute;
-			top: 30px;
-			left: 200px;
+
+
+
+
+		#hoverMenuDiv {
+			background-color: #CCCCCC;
+			height: 90vh;
+			width: 100%;
+			display: inline-flex;
 		}
 
-		.title {
-			position: absolute;
-			top: 320px;
+		.hoverButtonDiv {
+			display: inline-flex;
+			width: 100%;
 		}
+
+		.hoverButton {
+			border: 2px solid black;
+			background-color: #888888;
+			width: 100%;
+			text-align: center;
+			padding-top: 50%;
+			font: 24pt "impact";
+			color: black;
+		}
+
+		.infoPopUpDiv {
+			position: absolute;
+			top: 40px;
+			left: 150px;
+			visibility: hidden;
+			background-color: #FFFFFF;
+			display: flex;
+			border: 2px solid black;
+		}
+
+		.popUpTextDiv {
+			margin-left: 10px;
+			margin-right: 10px;
+			margin-top: 10px;
+		}
+
 
 	</style>
 
 </head>
 
-<body>
+<body class = "body" onload = "main()">
 
-	<a href = "/resume" charset="" class = button>Resume</a>
-	<a href = "/personaltraining" charset="" class = button2>Personal Training</a>
-	<a href = "/mynewlife" charset="" class = button3>My New Life</a>
+	<div class = "headerDiv">
+		<div id = "headerTitleDiv" class = "headerTitleDiv">
+			francispaesano.com
+		</div>
+		<div class = "infoButtonDiv">
+			<button class = "infoButton" id = infoButton>
+				<img style = "width:20px;height:20px;" src = "https://cdn-icons-png.flaticon.com/512/32/32175.png" class = "picture"></img>
+			</button>
+		</div>
+		<div class = "headerButtonsDiv">
+			<div class = "headerButtonDiv">
+				<a href = "/resume" charset="" class = button id = boom>
+					<span class = "buttonLabel">Resume</span></a>
+			</div>
+			<div class = "headerButtonDiv">
+				<a href = "/personaltraining" charset="" class = button><span class = "buttonLabel">Personal Training</span></a>
+			</div>
+			<div class = "headerButtonDiv">
+				<a href = "/mynewlife" charset="" class = button><span class = "buttonLabel">My New Life</span></a>
+			</div>
+		</div>
+	</div>
 
-	<p><label class = name>Francis Paesano<br>The University of Maryland - Bachelor of Science: Computer Science<br>ACE Certified<br>francispaesano@gmail.com</label></p>
+	<div id = "hoverMenuDiv">
+		<div id = "hoverButtonDiv" class = "hoverButtonDiv">
+			<a href = "/resume" id = hoverButton class = hoverButton>Resume</a>
+		</div>
+		<div id = "hoverButtonDiv2" class = "hoverButtonDiv">
+			<a href = "/personaltraining" id = hoverButton2 class = hoverButton>Personal Training</a>
+		</div>
+		<div id = "hoverButtonDiv3" class = "hoverButtonDiv">
+			<a href = "/mynewlife" id = hoverButton3 class = hoverButton>My New Life</a>
+		</div>
+		<div id = "hoverButtonDiv4" class = "hoverButtonDiv">
+			<a href = "/myfavoritelinks" id = hoverButton4 class = hoverButton>My Favorite Links</a>
+		</div>
+	</div>
 
-	<img src = "Profile Picture2.jpg" class = "picture"></img>
+	<div class = infoPopUpDiv id = "infoPopUpDiv">
+		<img style = "width:100px;" src = "Profile Picture2.jpg"></img>
+		<div class = "popUpTextDiv">
+			<div>Francis Paesano</div>
+			<div>francispaesano@gmail.com</div>
+			<div>UMD 2022</div>
+			<div id = "age"></div>
+		</div>
+	</div>
+
+
+
+	<div id="box"></div>
+
 
 </body>
 
 </html>
-
-
-
 
