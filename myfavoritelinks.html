@@ -4,9 +4,9 @@
 <head>
 
 <script>
-
+	document.title = "Hurawatch forever!"
 </script>
-
+	
 </head>
 
 <style>
@@ -30,11 +30,13 @@
 		padding-left: 15px;
 		padding-right: 15px;
 		border-left: 2px solid black;
+		text-decoration: none;
+		color: black;
 	}
 
 	.infoButtonDiv {
-			display: flex;
-		}
+		display: flex;
+	}
 
 	.infoButton {
 
@@ -99,14 +101,12 @@
 <body class = "body">
 
 	<div class = "headerDiv">
-		<div id = "headerTitleDiv" class = "headerTitleDiv">
-			My Favorite Links
-		</div>
+		<a href = "/resume" id = "headerTitleDiv" class = "headerTitleDiv">
+			francispaesano.com
+		</a>
 		<div class = "infoButtonDiv">
-			<button class = infoButton>
-				<a href = "/">
-					<img style = "width:20px;height:20px;" src = "https://cdn-icons-png.flaticon.com/512/32/32175.png" class = "picture"></img>
-				</a>
+			<button class = "infoButton" id = infoButton>
+				<img style = "width:20px;height:20px;" src = "https://cdn-icons-png.flaticon.com/512/32/32175.png" class = "picture"></img>
 			</button>
 		</div>
 		<div class = "headerButtonsDiv">
@@ -121,7 +121,7 @@
 				<a href = "/mynewlife" charset="" class = button><span class = "buttonLabel">My New Life</span></a>
 			</div>
 		</div>
-	</div>	
+	</div>
 	<div class = "linkPicturesDiv">
 		<div class = "linkPicturesRowDiv">
 			<div class = "linkPictureAndCaptionDiv">
