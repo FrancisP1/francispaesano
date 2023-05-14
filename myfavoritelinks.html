@@ -30,7 +30,18 @@
 		padding-left: 15px;
 		padding-right: 15px;
 		border-left: 2px solid black;
-		border-right: 2px solid black;
+	}
+
+	.infoButtonDiv {
+			display: flex;
+		}
+
+	.infoButton {
+
+		background-color: transparent;
+		border: 2px solid black;
+		border-bottom-style: none;
+		border-top-style: none;
 	}
 
 	.headerButtonsDiv {
@@ -90,6 +101,13 @@
 	<div class = "headerDiv">
 		<div id = "headerTitleDiv" class = "headerTitleDiv">
 			My Favorite Links
+		</div>
+		<div class = "infoButtonDiv">
+			<button class = infoButton>
+				<a href = "/">
+					<img style = "width:20px;height:20px;" src = "https://cdn-icons-png.flaticon.com/512/32/32175.png" class = "picture"></img>
+				</a>
+			</button>
 		</div>
 		<div class = "headerButtonsDiv">
 			<div class = "headerButtonDiv">
