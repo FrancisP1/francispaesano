@@ -5,30 +5,32 @@
 
 	<script>
 
+		var highlighted = -1; //Which button is highlighted
+		var unHighlighted = -1; //Which button was last highlighted
+		var highlightedButtonWidth = 25;
+		var unHighlightedButtonWidth = 30;
+		var isHighlighted = 0;
+
+		const hoverButtons = document.getElementsByClassName("hoverButtonDiv");
+
 		function main() {
 
 			document.title = "Francis Maria Paesano"
 
-			const element = document.getElementById("hoverButton");
-			const element2 = document.getElementById("hoverButton2");
-			const element3 = document.getElementById("hoverButton3");
-			const element4 = document.getElementById("hoverButton4");
+			const element = document.getElementById("hoverButtonDiv1");
+			const element2 = document.getElementById("hoverButtonDiv2");
+			const element3 = document.getElementById("hoverButtonDiv3");
+			const element4 = document.getElementById("hoverButtonDiv4");
 
-			addEvent(element);
-			addEvent(element2);
-			addEvent(element3);
-			addEvent(element4);
+			addHoverEvent(hoverButtons, 0);
+			addHoverEvent(hoverButtons, 1);
+			addHoverEvent(hoverButtons, 2);
+			addHoverEvent(hoverButtons, 3);
 
 			const infoButton = document.getElementById("infoButton");
-			
-			infoButton.addEventListener("click", event => {
-  				var visibility = document.getElementById("infoPopUpDiv").style.visibility;
-  				var popUp = document.getElementById("infoPopUpDiv");
-  				if(visibility == "visible")
-  					popUp.style.visibility = "hidden";
-  				else
-  					popUp.style.visibility = "visible";
-  			});
+
+			addInfoButtonEvent(infoButton);
+
 			const date = new Date();
 			var currMonths = (date.getFullYear() * 12) + (date.getMonth() + 1);
 			var birthMonths = (2000 * 12) + 6;
@@ -36,15 +38,53 @@
 			var age = ageMonths / 12;
 			var age = Math.trunc(age);
   			document.getElementById("age").innerHTML = age + " years old";
+
+  			setInterval(rendering, 15);
 		}
 
-		function addEvent(element) {
-			element.addEventListener("mouseover", event => {
-  				element.style.backgroundColor = "#CCCCCC";
-  			});
-  			element.addEventListener("mouseout", event => {
-  				element.style.backgroundColor = "#888888";
+		function rendering() {
+			//document.getElementById("title").innerHTML = unHighlightedButtonWidth;
+				
+			if(highlightedButtonWidth < 35)
+				highlightedButtonWidth += .5;
+			if(unHighlightedButtonWidth > 25)
+				unHighlightedButtonWidth -= .5;
+
+			hoverButtons[highlighted].style.width = highlightedButtonWidth + "%";
+			hoverButtons[unHighlighted].style.width = unHighlightedButtonWidth + "%";
+
+			for(var a = 0; a < 4; a++) {
+				if(a != highlighted && a != unHighlighted)
+					hoverButtons[a].style.width = "25%";
+			}
+		}
+
+		function addHoverEvent(hoverButtons, num) {
+			hoverButtons[num].addEventListener("mouseover", event => {
+	  				hoverButtons[num].style.backgroundColor = "#CCCCCC";
+	  				highlighted = num;
+	  				if(unHighlighted == num)
+	  					unHighlighted = -1;
+	  				highlightedButtonWidth = 25;
+	  				isHighlighted = 1;
+	  		});
+	  		hoverButtons[num].addEventListener("mouseout", event => {
+	  				hoverButtons[num].style.backgroundColor = "#888888";
+	  				unHighlightedButtonWidth = highlightedButtonWidth;
+	  				unHighlighted = highlighted;
+	  				isHighlighted = 0;
 			});
+		}
+
+		function addInfoButtonEvent(element) {
+			element.addEventListener("click", event => {
+  				var visibility = document.getElementById("infoPopUpDiv").style.visibility;
+  				var popUp = document.getElementById("infoPopUpDiv");
+  				if(visibility == "visible")
+  					popUp.style.visibility = "hidden";
+  				else
+  					popUp.style.visibility = "visible";
+  			});
 		}
 
 	</script>
@@ -53,6 +93,8 @@
 
 		.body {
 			margin: 0;
+			width: 100vw;
+			height: 100vh;
 		}
 
 		.headerDiv {
@@ -112,23 +154,26 @@
 		}
 
 		#hoverMenuDiv {
-			background-color: #CCCCCC;
-			height: 90vh;
+			background-color: transparent;
+			height: 92.8vh;
 			width: 100%;
 			display: inline-flex;
 		}
 
 		.hoverButtonDiv {
 			display: inline-flex;
-			width: 100%;
+			background-color: #888888;
+			width: 25%;
+			z-index: 2;
 		}
 
 		.hoverButton {
+			text-decoration: none;
 			border: 2px solid black;
-			background-color: #888888;
+			background-color: transparent;
 			width: 100%;
 			text-align: center;
-			padding-top: 50%;
+			padding-top: 5em;
 			font: 24pt "impact";
 			color: black;
 		}
@@ -158,7 +203,7 @@
 
 	<div class = "headerDiv">
 		<button id = "headerTitleDiv" class = "headerTitleDiv">
-			francispaesano.com
+			<span id = "title">francispaesano.com</span>
 		</button>
 		<div class = "infoButtonDiv">
 			<button class = "infoButton" id = infoButton>
@@ -180,17 +225,25 @@
 	</div>
 
 	<div id = "hoverMenuDiv">
-		<div id = "hoverButtonDiv" class = "hoverButtonDiv">
-			<a href = "/resume" id = hoverButton class = hoverButton>Resume</a>
+		<div id = "hoverButtonDiv1" class = "hoverButtonDiv">
+			<a href = "/resume" id = hoverButton class = hoverButton>
+			Resume
+			</a>
 		</div>
 		<div id = "hoverButtonDiv2" class = "hoverButtonDiv">
-			<a href = "/personaltraining" id = hoverButton2 class = hoverButton>Personal Training</a>
+			<a href = "/personaltraining" id = hoverButton2 class = hoverButton>
+			Personal Training
+			</a>
 		</div>
 		<div id = "hoverButtonDiv3" class = "hoverButtonDiv">
-			<a href = "/mynewlife" id = hoverButton3 class = hoverButton>My New Life</a>
+			<a href = "/mynewlife" id = hoverButton3 class = hoverButton>
+			My New Life
+			</a>
 		</div>
 		<div id = "hoverButtonDiv4" class = "hoverButtonDiv">
-			<a href = "/myfavoritelinks" id = hoverButton4 class = hoverButton>My Favorite Links</a>
+			<a href = "/myfavoritelinks" id = hoverButton4 class = hoverButton>
+			My Favorite Links
+			</a>
 		</div>
 	</div>
 
