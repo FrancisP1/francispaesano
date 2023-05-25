@@ -10,12 +10,22 @@
 		var highlightedButtonWidth = 25;
 		var unHighlightedButtonWidth = 30;
 		var isHighlighted = 0;
+		var color = 0xCCCCCC;
+		var highlightedColor = 0;
+		var unHighlightedColor = 0;
+
+		const hoverButtonWidthMin = 25;
+		const hoverButtonWidthMax = 35;
+		const hoverButtonColorMin = 128;
+		const hoverButtonColorMax = 192;
+
+		var frames = 0;
 
 		const hoverButtons = document.getElementsByClassName("hoverButtonDiv");
 
 		function main() {
 
-			document.title = "Francis Maria Paesano"
+			document.title = "Francis Maria Paesano";
 
 			const element = document.getElementById("hoverButtonDiv1");
 			const element2 = document.getElementById("hoverButtonDiv2");
@@ -43,35 +53,52 @@
 		}
 
 		function rendering() {
-			//document.getElementById("title").innerHTML = unHighlightedButtonWidth;
+			frames += 1;
 				
-			if(highlightedButtonWidth < 35)
+			if(highlightedButtonWidth < hoverButtonWidthMax)
 				highlightedButtonWidth += .5;
-			if(unHighlightedButtonWidth > 25)
+			if(unHighlightedButtonWidth > hoverButtonWidthMin)
 				unHighlightedButtonWidth -= .5;
+			if(highlightedColor < hoverButtonColorMax)
+				highlightedColor += 4;
+			if(unHighlightedColor > hoverButtonColorMin)
+				unHighlightedColor -= 4;
 
-			hoverButtons[highlighted].style.width = highlightedButtonWidth + "%";
-			hoverButtons[unHighlighted].style.width = unHighlightedButtonWidth + "%";
+			if(highlighted != -1)
+				hoverButtons[highlighted].style.width = highlightedButtonWidth + "%";
+			if(unHighlighted != -1)
+				hoverButtons[unHighlighted].style.width = unHighlightedButtonWidth + "%";
+
+			hoverButtons[highlighted].style.backgroundColor = colorString(highlightedColor);
+			hoverButtons[unHighlighted].style.backgroundColor = colorString(unHighlightedColor);
 
 			for(var a = 0; a < 4; a++) {
-				if(a != highlighted && a != unHighlighted)
-					hoverButtons[a].style.width = "25%";
+				if(a != highlighted && a != unHighlighted) {
+					hoverButtons[a].style.width = hoverButtonWidthMin + "%";
+					hoverButtons[a].style.backgroundColor = colorString(hoverButtonColorMin);
+				}
 			}
+
+		}
+
+		function colorString(num) {
+			return "rgb(" + num + "," + num + "," + num + ")";
 		}
 
 		function addHoverEvent(hoverButtons, num) {
 			hoverButtons[num].addEventListener("mouseover", event => {
-	  				hoverButtons[num].style.backgroundColor = "#CCCCCC";
 	  				highlighted = num;
 	  				if(unHighlighted == num)
 	  					unHighlighted = -1;
-	  				highlightedButtonWidth = 25;
+	  				highlightedButtonWidth = hoverButtonWidthMin;
+	  				highlightedColor = hoverButtonColorMin;
 	  				isHighlighted = 1;
 	  		});
 	  		hoverButtons[num].addEventListener("mouseout", event => {
-	  				hoverButtons[num].style.backgroundColor = "#888888";
+	  				hoverButtons[num].style.backgroundColor = colorString(highlightedColor);
 	  				unHighlightedButtonWidth = highlightedButtonWidth;
-	  				unHighlighted = highlighted;
+	  				unHighlighted = num;
+	  				unHighlightedColor = highlightedColor;
 	  				isHighlighted = 0;
 			});
 		}
